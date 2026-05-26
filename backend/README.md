@@ -1,3 +1,162 @@
+# 📚 Library System API
+
+## ▶️ تشغيل المشروع
+
+1. تثبيت الحزم:
+
+```bash
+npm install
+```
+
+2. تشغيل السيرفر:
+
+```bash
+npm run start:dev
+```
+
+📌 السيرفر يعمل على:
+
+```
+http://localhost:3000
+```
+
+---
+
+## 🔐 بيانات الدخول الافتراضية
+
+* **Username:** admin
+* **Password:** 123456
+
+---
+
+## 🚀 Endpoints
+
+### 1️⃣ تسجيل مستخدم جديد
+
+**POST**
+
+```
+http://localhost:3000/users/register
+```
+
+📦 Body (JSON):
+
+```json
+{
+  "national_id": "123456789",
+  "username": "newuser",
+  "full_name": "New User",
+  "email": "newuser@gmail.com",
+  "password": "123456",
+  "role": "librarian"
+}
+```
+
+---
+
+### 2️⃣ تسجيل الدخول
+
+**POST**
+
+```
+http://localhost:3000/auth/login
+```
+
+📦 Body (JSON):
+
+```json
+{
+  "username": "admin",
+  "password": "123456"
+}
+```
+
+📌 يتم إرجاع Token لاستخدامه في الطلبات المحمية.
+
+---
+
+### 3️⃣ عرض جميع المستخدمين
+
+**GET**
+
+```
+http://localhost:3000/users/
+```
+
+📌 Header:
+
+```
+Authorization: Bearer YOUR_TOKEN
+```
+
+---
+
+### 4️⃣ حذف مستخدم
+
+**DELETE**
+
+```
+http://localhost:3000/users/{id}
+```
+
+---
+
+### 5️⃣ تعديل مستخدم
+
+**PUT**
+
+```
+http://localhost:3000/users/{id}
+```
+
+📦 Body (JSON):
+
+```json
+{
+  "full_name": "Updated Name",
+  "email": "updated@gmail.com"
+}
+```
+
+---
+
+## 🔑 ملاحظات
+
+* جميع العمليات (عدا تسجيل الدخول) تحتاج Token
+* المدير (admin) يمتلك جميع الصلاحيات
+* أمين المكتبة (librarian) يمتلك صلاحيات محدودة
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
